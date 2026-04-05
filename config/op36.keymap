@@ -37,19 +37,245 @@
             hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31 32>;
             hold-trigger-on-release;
         };
-    };
 
-    combos {
-        compatible = "zmk,combos";
+        tab_morph: tab_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "TAB_MORPH";
+            bindings = <&kp A>, <&kp TAB>;
 
-        kha {
-            bindings = <&kp LBKT>;
-            key-positions = <6 7>;
+            #binding-cells = <0>;
+            mods = <(MOD_LGUI)>;
+            keep-mods = <(MOD_LGUI)>;
         };
 
-        hrdsgn {
-            bindings = <&kp RBKT>;
-            key-positions = <7 8>;
+        escp_morph: escp_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ESCP_MORPH";
+            bindings = <&kp Q>, <&kp ESC>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LGUI)>;
+            keep-mods = <(MOD_LGUI)>;
+        };
+
+        alt_morph: alt_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ALT_MORPH";
+            bindings = <&kp Z>, <&kp LEFT_ALT>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LGUI)>;
+            keep-mods = <(MOD_LGUI)>;
+        };
+
+        a_morph: a_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "A_MORPH";
+            bindings = <&kp S>, <&kp A>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LGUI)>;
+            keep-mods = <(MOD_LGUI)>;
+        };
+    };
+
+    combos { compatible = "zmk,combos"; };
+
+    macros {
+        ru_en_toggle: ru_en_toggle {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_CONTROL>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LEFT_CONTROL>;
+
+            label = "RU_EN_TOGGLE";
+        };
+
+        copy: copy {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_COMMAND>,
+                <&macro_tap>,
+                <&kp C>,
+                <&macro_release>,
+                <&kp LEFT_COMMAND>;
+
+            label = "COPY";
+        };
+
+        paste: paste {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_COMMAND>,
+                <&macro_tap>,
+                <&kp V>,
+                <&macro_release>,
+                <&kp LEFT_COMMAND>;
+
+            label = "PASTE";
+        };
+
+        save: save {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_COMMAND>,
+                <&macro_tap>,
+                <&kp S>,
+                <&macro_release>,
+                <&kp LEFT_COMMAND>;
+
+            label = "SAVE";
+        };
+
+        revert: revert {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_COMMAND>,
+                <&macro_tap>,
+                <&kp Z>,
+                <&macro_release>,
+                <&kp LEFT_COMMAND>;
+
+            label = "REVERT";
+        };
+
+        macro_one: one {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_COMMAND>,
+                <&macro_tap>,
+                <&kp N1>,
+                <&macro_release>,
+                <&kp LEFT_COMMAND>;
+
+            label = "ONE";
+        };
+
+        macro_zero: zero {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_COMMAND>,
+                <&macro_tap>,
+                <&kp N0>,
+                <&macro_release>,
+                <&kp LEFT_COMMAND>;
+
+            label = "ZERO";
+        };
+
+        next_page: next_page {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_CONTROL>,
+                <&macro_tap>,
+                <&kp TAB>,
+                <&macro_release>,
+                <&kp LEFT_CONTROL>;
+
+            label = "NEXT_PAGE";
+        };
+
+        prev_page: prev_page {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_CONTROL &kp LEFT_SHIFT>,
+                <&macro_tap>,
+                <&kp TAB>,
+                <&macro_release>,
+                <&kp LEFT_CONTROL &kp LEFT_SHIFT>;
+
+            label = "PREV_PAGE";
+        };
+
+        pop_history: pop_history {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_COMMAND>,
+                <&macro_tap>,
+                <&kp LEFT_BRACKET>,
+                <&macro_release>,
+                <&kp LEFT_COMMAND>;
+
+            label = "POP_HISTORY";
+        };
+
+        push_history: push_history {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_COMMAND>,
+                <&macro_tap>,
+                <&kp RIGHT_BRACKET>,
+                <&macro_release>,
+                <&kp LEFT_COMMAND>;
+
+            label = "PUSH_HISTORY";
+        };
+
+        macro_two: two {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_COMMAND>,
+                <&macro_tap>,
+                <&kp N2>,
+                <&macro_release>,
+                <&kp LEFT_COMMAND>;
+
+            label = "TWO";
+        };
+
+        select_word: select_word {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_COMMAND>,
+                <&macro_tap>,
+                <&kp D>,
+                <&macro_release>,
+                <&kp LEFT_COMMAND>;
+
+            label = "SELECT_WORD";
+        };
+
+        macro_c: macro_c {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_CONTROL>,
+                <&macro_tap>,
+                <&kp C>,
+                <&macro_release>,
+                <&kp LEFT_CONTROL>;
+
+            label = "MACRO_C";
         };
     };
 
@@ -58,46 +284,64 @@
 
         base {
             bindings = <
-  &kp Q        &kp W        &kp E         &kp R          &kp T                          &kp Y  &kp U         &kp I         &kp O        &kp P
-  &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F   &kp G                          &kp H  &hmr RCTRL J  &hmr RSHFT K  &hmr LALT L  &hmr RGUI SEMICOLON
-  &kp Z        &kp X        &kp C         &kp V          &kp B                          &kp N  &kp M         &kp COMMA     &kp DOT      &kp SQT
-                                          &kp BACKSPACE  &mo 1  &kp SPACE    &kp ENTER  &mo 2  &kp TAB
+  &escp_morph  &kp W     &kp F  &kp P             &kp G                          &kp J  &kp L           &kp U      &kp Y    &kp BACKSPACE
+  &tab_morph   &a_morph  &kp R  &kp T             &kp D                          &kp H  &kp N           &kp E      &kp I    &kp O
+  &alt_morph   &kp X     &kp C  &kp V             &kp B                          &kp K  &kp M           &kp COMMA  &kp DOT  &kp FSLH
+                                &kp LEFT_COMMAND  &mo 1  &kp SPACE    &kp ENTER  &mo 2  &kp LEFT_SHIFT
             >;
 
             display-name = "Base";
         };
 
-        nav {
+        macros {
             bindings = <
-  &kp N1         &kp N2    &kp N3     &kp N4     &kp N5                        &kp N6           &kp N7           &kp N8           &kp N9        &kp N0
-  &hml LGUI ESC  &kp LALT  &kp LSHFT  &kp LCTRL  &kp ENTER                     &kp PRINTSCREEN  &hmr RCTRL LEFT  &hmr RSHFT DOWN  &hmr LALT UP  &hmr RGUI RIGHT
-  &none          &kp HOME  &kp INS    &kp END    &kp DELETE                    &kp CAPS         &none            &kp PG_DN        &kp PG_UP     &none
-                                      &trans     &trans      &trans    &trans  &mo 3            &trans
+  &kp ESC         &kp HOME      &kp UP    &kp END           &kp PRINTSCREEN                          &kp PAGE_UP    &ru_en_toggle  &none        &kp F12     &kp BACKSPACE
+  &kp TAB         &kp LEFT      &kp DOWN  &kp RIGHT         &macro_c                                 &kp PAGE_DOWN  &copy          &paste       &revert     &kp LEFT_CONTROL
+  &kp LEFT_SHIFT  &kp LEFT_ALT  &kp CAPS  &kp LEFT_CONTROL  &kp DELETE                               &save          &macro_one     &macro_zero  &macro_two  &trans
+                                          &trans            &trans           &trans    &select_word  &mo 3          &trans
             >;
 
-            display-name = "Nav";
+            display-name = "Macros";
         };
 
-        sym {
+        symbols {
             bindings = <
-  &none           &kp LT          &kp EQUAL         &kp GT           &kp GRAVE                    &kp CARET  &kp LBKT         &kp UNDER        &kp RBKT        &none
-  &hml LGUI BSLH  &hml LALT LPAR  &hml LSHFT MINUS  &hml LCTRL RPAR  &kp PLUS                     &kp PRCNT  &hmr RCTRL LBRC  &hmr RSHFT SEMI  &hmr LALT RBRC  &hmr RGUI EXCL
-  &kp HASH        &kp STAR        &kp COLON         &kp FSLH         &none                        &none      &kp PIPE         &kp TILDE        &kp AMPS        &kp DLLR
-                                                    &trans           &mo 3      &trans    &trans  &trans     &trans
+  &kp ESC         &kp LT                &kp EQUAL  &kp GT                 &kp GRAVE                            &kp CARET  &kp LBKT        &kp UNDER  &kp RBKT         &kp BACKSPACE
+  &kp TAB         &kp LEFT_PARENTHESIS  &kp MINUS  &kp RIGHT_PARENTHESIS  &kp PLUS                             &kp PRCNT  &kp LEFT_BRACE  &kp SEMI   &kp RIGHT_BRACE  &kp EXCLAMATION
+  &kp LEFT_SHIFT  &kp ASTRK             &kp COLON  &kp BACKSLASH          &kp DOUBLE_QUOTES                    &kp SQT    &kp PIPE        &kp TILDE  &kp AMPS         &trans
+                                                   &trans                 &mo 3              &trans    &trans  &trans     &trans
             >;
 
             display-name = "Symbols";
         };
 
-        adj {
+        numbers {
             bindings = <
-  &bootloader  &kp F1        &kp F2         &kp F3         &kp F4                     &bt BT_SEL 0  &bt BT_SEL 1         &bt BT_SEL 2       &bt BT_SEL 3        &bt BT_CLR
-  &kp LGUI     &hml LALT F5  &hml LSHFT F6  &hml LCTRL F7  &kp F8                     &out OUT_BLE  &hmr RCTRL C_VOL_DN  &hmr RSHFT C_MUTE  &hmr LALT C_VOL_UP  &kp RGUI
-  &none        &kp F9        &kp F10        &kp F11        &kp F12                    &out OUT_USB  &kp C_PREV           &kp C_PP           &kp C_NEXT          &studio_unlock
-                                            &trans         &trans   &trans    &trans  &trans        &trans
+  &kp N1          &kp N2        &kp N3  &kp N4         &kp N5                    &kp N6  &kp N7        &kp N8      &kp N9        &kp N0
+  &kp TAB         &prev_page    &trans  &next_page     &mo 5                     &mo 4   &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &trans
+  &kp LEFT_SHIFT  &pop_history  &trans  &push_history  &trans                    &trans  &kp C_PREV    &kp C_PP    &kp C_NEXT    &kp LEFT_SHIFT
+                                        &trans         &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        fs {
+            bindings = <
+  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5                    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
+  &kp F11  &kp F12  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
+  &trans   &trans   &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
+                            &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        bluetooth {
+            bindings = <
+  &bootloader  &trans  &trans  &trans  &trans                    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR
+  &trans       &trans  &trans  &trans  &trans                    &out OUT_BLE  &trans        &trans        &trans        &trans
+  &trans       &trans  &trans  &trans  &trans                    &out OUT_USB  &trans        &trans        &trans        &studio_unlock
+                               &trans  &trans  &trans    &trans  &trans        &trans
             >;
 
-            display-name = "Adjust";
+            display-name = "Bluetooth";
         };
     };
 };
