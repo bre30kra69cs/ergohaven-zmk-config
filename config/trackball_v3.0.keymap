@@ -37,7 +37,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "ADJ_TD";
             #binding-cells = <0>;
-            bindings = <&mkp MB3>, <&to 3>;
+            bindings = <&to 2>, <&to 3>;
         };
 
         hold_mo_tap_mkp: hold_mo_tap_mkp {
