@@ -56,7 +56,7 @@
         compatible = "zmk,combos";
 
         base_combo {
-            bindings = <&adj_td>;
+            bindings = <&mkp MB3>;
             key-positions = <0 1>;
             layers = <0 1 2>;
         };
@@ -73,7 +73,7 @@
 
         base {
             bindings = <
-&hold_mo_tap_mkp 2 LCLK  &hold_mo_tap_mkp 1 MB2
+&mkp MB1  &hold_mo_tap_mkp 1 MB2
             >;
 
             display-name = "Base";
